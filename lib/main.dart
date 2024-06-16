@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_app/home.dart';
+import 'package:portfolio_app/responsive/responsive_layout.dart';
+import 'package:portfolio_app/responsive/mobile/mobile.dart';
+import 'package:portfolio_app/responsive/tablet/tablet.dart';
+import 'package:portfolio_app/responsive/desktop/desktop.dart';
+// import 'package:portfolio_app/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +17,12 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'My Portfolio',
-      home: HomePage(),
+      home: ResponsiveBuilder(
+        mobile: MobileHomePage(),
+        tablet: TabletHomePage(),
+        desktop: DesktopHomePage(),
+      ),
+      // home: HomePage(),
     );
   }
 }
